@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evolmeo.ai — AI Coaching</title>
+<style>
+:root{
+  --bg:#f7f3e9;--paper:#fffdf8;--ink:#171717;--muted:#6e6a61;
+  --gold:#b27a05;--gold2:#c58a08;--line:#e5dfd2;--green:#6d8a79;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif}
+a{text-decoration:none;color:inherit}
+.container{max-width:1450px;margin:auto;padding:0 28px}
+header{height:72px;background:rgba(255,253,248,.94);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 34px;position:sticky;top:0;z-index:10}
+.logo{font-size:24px;letter-spacing:-1px;display:flex;align-items:center;gap:10px}.logo-mark{color:var(--gold);font-size:30px}
+nav{display:flex;gap:30px;font-size:13px;color:#403d38}nav a:hover{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 20px;border-radius:7px;border:1px solid var(--gold);font-weight:700;font-size:13px;cursor:pointer}
+.btn.primary{background:var(--gold);color:white}.btn.secondary{background:white;color:#3b382f}
+.hero{display:grid;grid-template-columns:1.03fr .97fr;gap:45px;align-items:center;padding:78px 40px 55px;max-width:1450px;margin:auto}
+.eyebrow{display:inline-block;background:#f0e7d1;padding:7px 11px;border-radius:20px;font-size:10px;font-weight:800;letter-spacing:.08em}
+h1,h2,h3,.serif{font-family:Georgia,serif}
+h1{font-size:67px;line-height:.98;letter-spacing:-3px;margin:20px 0}
+.lead{font-size:17px;line-height:1.65;color:#5e5a52;max-width:570px}
+.actions{display:flex;gap:12px;margin:28px 0}
+.trust{display:flex;gap:25px;color:#625e55;font-size:12px}
+.mock{min-height:510px;border:1px solid #ddd5c5;border-radius:18px;background:#f5f0e3;padding:28px;position:relative;overflow:hidden}
+.mock:before{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:#d9dfd3;right:-90px;top:-80px}
+.mock-card{position:relative;background:#fffdf9;border:1px solid #ddd6c8;border-radius:14px;padding:24px;box-shadow:0 15px 40px #8d7c4b18;max-width:390px;margin:35px auto}
+.mock-title{font:30px Georgia,serif;margin:10px 0 20px}
+.chat{padding:14px;border:1px solid #e3ddd2;border-radius:10px;margin:9px 0;font-size:13px}
+.chat.ai{background:#f7f3e9}
+.section{padding:65px 40px;max-width:1450px;margin:auto}
+.features{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:12px;background:var(--paper)}
+.feature{padding:30px;border-right:1px solid var(--line)}.feature:last-child{border:0}
+.feature h3{font-size:20px;margin:12px 0 8px}.feature p{color:var(--muted);line-height:1.55;font-size:14px}
+.security{margin-top:20px;border:1px solid var(--line);background:#fbf8ef;border-radius:10px;padding:20px;display:flex;justify-content:space-between;color:#5d584e;font-size:13px}
+.testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.quote{background:var(--paper);border:1px solid var(--line);padding:25px;border-radius:12px;line-height:1.6;color:#4f4b43}
+.pricing{background:#f2ecdc;border-radius:16px;padding:35px}.pricing-top{display:flex;justify-content:space-between;align-items:center}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:25px}.price{background:#fffdf8;border:1px solid #ddd4c3;border-radius:12px;padding:25px}.price.popular{border:2px solid var(--gold)}.price h3{font-size:22px}.amount{font:32px Georgia,serif;margin:18px 0}.price li{margin:10px 0;color:#625d54;font-size:13px}.price ul{padding-left:18px}
+.cta{margin-top:25px;background:#b27a05;color:white;padding:23px 28px;border-radius:10px;display:flex;align-items:center;justify-content:space-between}
+footer{padding:35px 40px;border-top:1px solid var(--line);color:#777267;font-size:12px}
+.app{display:grid;grid-template-columns:235px 1fr;min-height:760px;max-width:1450px;margin:45px auto;border:1px solid #ddd6c9;border-radius:16px;overflow:hidden;background:#fffdf8}
+.sidebar{background:#fcfaf3;border-right:1px solid var(--line);padding:25px 15px}
+.side-logo{padding:0 10px 28px;font-size:21px}.side-section{font-size:10px;letter-spacing:.12em;color:#8c867b;margin:22px 10px 9px}
+.side-link{padding:10px;border-radius:8px;font-size:13px;margin:3px 0}.side-link.active{background:#efe4ce;color:#8b5d00;font-weight:700}
+.appmain{padding:30px}.apphead{display:flex;justify-content:space-between;align-items:center}.apphead h2{font-size:27px;margin:0 0 5px}.apphead p{margin:0;color:#777167;font-size:13px}
+.dashboard-card{border:1px solid var(--line);border-radius:13px;padding:25px;margin-top:25px}.session{display:flex;justify-content:space-between;align-items:center;background:#faf7ef}.session h3{font-size:23px;margin:8px 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}.stat{border:1px solid var(--line);border-radius:10px;padding:18px}.stat small{color:#817b71}.stat strong{display:block;font:25px Georgia,serif;margin-top:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:15px}.insight{padding:12px 0;border-bottom:1px solid var(--line);font-size:13px}.insight:last-child{border:0}
+@media(max-width:900px){
+ nav{display:none}.hero{grid-template-columns:1fr;padding:55px 22px}.hero h1{font-size:49px}.section{padding:45px 22px}
+ .features,.cards,.testimonials{grid-template-columns:1fr}.feature{border-right:0;border-bottom:1px solid var(--line)}
+ .security,.pricing-top,.cta{flex-direction:column;align-items:flex-start;gap:15px}
+ .app{grid-template-columns:1fr;margin:25px 12px}.sidebar{display:none}.appmain{padding:20px}.stats{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="#"><span class="logo-mark">◡</span> evolmeo.ai</a>
+  <nav><a href="#product">Product</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a href="#resources">Resources</a><a href="#about">About</a></nav>
+  <div style="display:flex;gap:10px;align-items:center"><a href="#">Log in</a><a class="btn primary" href="#pricing">Start free session</a></div>
+</header>
+
+<main>
+<section class="hero" id="product">
+  <div>
+    <span class="eyebrow">AI COACHING, BUILT FOR YOU</span>
+    <h1>AI coaching for<br>real progress.</h1>
+    <p class="lead">Evolmeo blends conversational AI, diagnostics and reflective tools to help you make better decisions and build momentum.</p>
+    <div class="actions"><a class="btn primary" href="#pricing">Start your free session →</a><a class="btn secondary" href="#how">See how it works</a></div>
+    <div class="trust"><span>♧ Private & secure</span><span>✣ Science-backed</span><span>♧ Built for human growth</span></div>
+  </div>
+  <div class="mock">
+    <div class="mock-card">
+      <small>COACHING SESSION · 12 MIN</small>
+      <div class="mock-title">Make a difficult<br>work decision</div>
+      <div class="chat">What's on your mind?</div>
+      <div class="chat ai">I'm facing a tough call with my team and I'm not sure what's best.</div>
+      <div class="chat">Let's work through it together.</div>
+      <div style="text-align:right;margin-top:20px"><span class="btn primary">Continue →</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="features">
+    <div class="feature"><div>◉</div><h3>Conversational<br>AI sessions</h3><p>Have meaningful conversations that surface clarity and next steps.</p></div>
+    <div class="feature"><div>♧</div><h3>Diagnostic<br>assessments</h3><p>Understand your patterns so you can grow with intention.</p></div>
+    <div class="feature"><div>▤</div><h3>Reflective<br>journaling</h3><p>Capture insights and track your progress over time.</p></div>
+  </div>
+  <div class="security"><strong>♢ Your privacy is our priority</strong><span>End-to-end encryption · GDPR compliant · Your data, always yours.</span><span>GDPR · ISO 27001</span></div>
+</section>
+
+<section class="section" id="about">
+  <h2 style="font-size:38px">Trusted by professionals<br>and leaders worldwide</h2>
+  <div class="testimonials">
+    <div class="quote">“Evolmeo helped me make a career decision I'd been overthinking for months.”<br><br><b>Sarah L.</b> · Marketing Director</div>
+    <div class="quote">“The assessments gave me real insights and the journaling keeps me accountable.”<br><br><b>James K.</b> · Founder</div>
+    <div class="quote">“It feels like having an executive coach in my pocket, 24/7.”<br><br><b>Priya S.</b> · Product Lead</div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="pricing">
+    <div class="pricing-top"><div><h2 style="font-size:32px;margin:0">Simple pricing. Real impact.</h2><p>Start free, upgrade when you're ready.</p></div><span>Monthly &nbsp; ◉ &nbsp; Annual (save 20%)</span></div>
+    <div class="cards">
+      <div class="price"><h3>Starter</h3><p>Build healthy habits and gain clarity.</p><div class="amount">€0 <small>free forever</small></div><ul><li>3 AI coaching sessions / month</li><li>Basic assessments</li><li>Daily journal</li><li>Community access</li></ul><a class="btn secondary" href="#">Get started</a></div>
+      <div class="price popular"><small>MOST POPULAR</small><h3>Growth</h3><p>Go deeper and stay accountable.</p><div class="amount">€9 <small>/ month</small></div><ul><li>Unlimited AI coaching sessions</li><li>Advanced assessments</li><li>Journaling & reflections</li><li>Goal tracking & insights</li></ul><a class="btn primary" href="#">Start 7-day free trial</a></div>
+      <div class="price"><h3>Enterprise</h3><p>For teams and organizations.</p><div class="amount">Custom</div><ul><li>Team dashboards</li><li>Admin controls</li><li>SSO & advanced security</li><li>Dedicated success manager</li></ul><a class="btn secondary" href="#">Contact sales</a></div>
+    </div>
+    <div class="cta"><strong style="font:22px Georgia,serif">Ready to make progress you can feel?</strong><a class="btn secondary" href="#">Start free session →</a></div>
+  </div>
+</section>
+
+<section class="app" id="dashboard">
+  <aside class="sidebar">
+    <div class="side-logo"><span class="logo-mark">◡</span> evolmeo.ai</div>
+    <div class="side-section">MAIN</div>
+    <div class="side-link active">⌂ &nbsp; Home</div>
+    <div class="side-link">◫ &nbsp; Coaching Journal</div>
+    <div class="side-link">✧ &nbsp; Daily Journal</div>
+    <div class="side-section">COACHING TOOLS</div>
+    <div class="side-link">◉ &nbsp; Assessments</div>
+    <div class="side-link">▣ &nbsp; Worksheets & Exercises</div>
+    <div class="side-link">⚙ &nbsp; Goals & Habits</div>
+    <div class="side-section">HISTORY</div>
+    <div class="side-link">◷ &nbsp; Coaching History</div>
+    <div class="side-section">ACCOUNT</div>
+    <div class="side-link">▤ &nbsp; Billing & Subscriptions</div>
+    <div class="side-link">♢ &nbsp; Security & Privacy</div>
+    <div class="side-link">⚙ &nbsp; Settings</div>
+  </aside>
+  <div class="appmain">
+    <div class="apphead"><div><h2>Good morning, Pavol 👋</h2><p>Let's keep your momentum going.</p></div><a class="btn primary" href="#">New coaching session</a></div>
+    <div class="dashboard-card session"><div><small>START A COACHING SESSION</small><h3>What would you like to focus on today?</h3><p>Share what's on your mind and we'll work through it together.</p><a class="btn primary" href="#">Start session →</a></div><div style="font-size:100px;opacity:.25">◒</div></div>
+    <div class="stats">
+      <div class="stat"><small>WEEKLY PROGRESS</small><strong>72%</strong><span>Great progress!</span></div>
+      <div class="stat"><small>FOCUS STREAK</small><strong>🔥 7</strong><span>days in a row</span></div>
+      <div class="stat"><small>SESSIONS THIS MONTH</small><strong>8</strong><span>+2 from last month</span></div>
+      <div class="stat"><small>CURRENT GOAL</small><strong style="font-size:18px">Make a difficult work decision</strong><span>Active</span></div>
+    </div>
+    <div class="grid2">
+      <div class="dashboard-card"><h3>Recent insights</h3><div class="insight">You tend to overanalyze before deciding.</div><div class="insight">Your values: Impact, Growth, Autonomy.</div><div class="insight">You lead with empathy. Remember to protect your own energy.</div></div>
+      <div class="dashboard-card"><h3>Pending reflections</h3><div class="insight">Leadership Style Assessment <button class="btn secondary" style="float:right;padding:6px 10px">Continue</button></div><div class="insight">Decision Clarity Worksheet <button class="btn secondary" style="float:right;padding:6px 10px">Start</button></div><div class="insight">Values Alignment Exercise</div></div>
+    </div>
+    <div class="grid2">
+      <div class="dashboard-card"><h3>Recent sessions</h3><div class="insight"><b>Make a difficult work decision</b><br><small>May 4 · 18 min · 3 actions</small></div><div class="insight"><b>Managing team conflict</b><br><small>May 1 · 16 min · 2 actions</small></div><div class="insight"><b>Career next steps</b><br><small>Apr 28 · 22 min · 4 actions</small></div></div>
+      <div class="dashboard-card"><h3>Daily journal</h3><p>Capture your thoughts and track your growth.</p><a class="btn secondary" href="#">Open Daily Journal</a></div>
+    </div>
+  </div>
+</section>
+</main>
+<footer>© 2026 evolmeo.ai · AI coaching for real progress.</footer>
+</body>
+</html>
